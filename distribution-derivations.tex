@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\title{Derivation of the Inverse CDF of Different Distributions}
+\author{}
+\date{}
+\maketitle
+
+\section*{Exponential Distribution}
+
+\subsection*{CDF:}
+The cumulative distribution function (CDF) of an exponential distribution is given by:
+\[
+F(x) = 1 - e^{-\lambda x}, \quad x \geq 0
+\]
+
+\subsection*{Inverse CDF:}
+To find the inverse CDF, we set \( F(x) = u \):
+\[
+u = 1 - e^{-\lambda x}
+\]
+
+Solving for \( x \):
+\[
+e^{-\lambda x} = 1 - u
+\]
+
+Taking the natural logarithm of both sides:
+\[
+-\lambda x = \ln(1 - u)
+\]
+
+Solving for \( x \):
+\[
+x = -\frac{1}{\lambda} \ln(1 - u)
+\]
+
+Thus, given a uniform random variable \( U \sim \text{Uniform}(0, 1) \), the sample from the exponential distribution is:
+\[
+X = -\frac{1}{\lambda} \ln(1 - U)
+\]
+
+\newpage
+
+\section*{Weibull Distribution}
+
+\subsection*{CDF:}
+The cumulative distribution function (CDF) of the Weibull distribution is given by:
+\[
+F(x) = 1 - e^{-(x/\lambda)^k}, \quad x \geq 0
+\]
+
+\subsection*{Inverse CDF:}
+To find the inverse CDF, we set \( F(x) = u \):
+\[
+u = 1 - e^{-(x/\lambda)^k}
+\]
+
+Solving for \( x \):
+\[
+e^{-(x/\lambda)^k} = 1 - u
+\]
+
+Taking the natural logarithm of both sides:
+\[
+-(x/\lambda)^k = \ln(1 - u)
+\]
+
+Solving for \( (x/\lambda)^k \):
+\[
+(x/\lambda)^k = -\ln(1 - u)
+\]
+
+Taking the \( k \)-th root of both sides:
+\[
+x = \lambda (-\ln(1 - u))^{1/k}
+\]
+
+Thus, given a uniform random variable \( U \sim \text{Uniform}(0, 1) \), the sample from the Weibull distribution is:
+\[
+X = \lambda (-\ln(1 - U))^{1/k}
+\]
+
+\newpage
+
+\section*{Logistic Distribution}
+
+\subsection*{CDF:}
+The cumulative distribution function (CDF) of the logistic distribution is given by:
+\[
+F(x) = \frac{1}{1 + e^{-(x-\mu)/s}}
+\]
+
+\subsection*{Inverse CDF:}
+To find the inverse CDF, we set \( F(x) = u \):
+\[
+u = \frac{1}{1 + e^{-(x-\mu)/s}}
+\]
+
+Solving for \( x \):
+\[
+\frac{1}{1 + e^{-(x-\mu)/s}} = \frac{1}{u}
+\]
+
+\[
+1 + e^{-(x-\mu)/s} = \frac{1}{u}
+\]
+
+\[
+e^{-(x-\mu)/s} = \frac{1}{u} - 1
+\]
+
+\[
+\frac{1}{e^{(x-\mu)/s}} = \frac{u}{1 - u}
+\]
+
+\[
+-(x-\mu)/s = \ln\left(\frac{u}{1 - u}\right)
+\]
+
+\[
+x - \mu = -s \ln\left(\frac{u}{1 - u}\right)
+\]
+
+\[
+x = \mu - s \ln\left(\frac{u}{1 - u}\right)
+\]
+
+Thus, given a uniform random variable \( U \sim \text{Uniform}(0, 1) \), the sample from the logistic distribution is:
+\[
+X = \mu - s \ln\left(\frac{U}{1 - U}\right)
+\]
+
+\newpage
+
+\section*{Geometric Distribution}
+
+\subsection*{CDF:}
+The cumulative distribution function (CDF) of the geometric distribution is given by:
+\[
+F(k) = 1 - (1 - p)^k, \quad k = 0, 1, 2, \ldots
+\]
+
+\subsection*{Inverse CDF:}
+To find the inverse CDF, we set \( F(k) = u \):
+\[
+u = 1 - (1 - p)^k
+\]
+
+\[
+1 - u = (1 - p)^k
+\]
+
+\[
+\ln(1 - u) = k \ln(1 - p)
+\]
+
+\[
+k = \frac{\ln(1 - u)}{\ln(1 - p)}
+\]
+
+Since \(k\) must be an integer, we take the ceiling of this value:
+\[
+k = \lceil \frac{\ln(1 - u)}{\ln(1 - p)} \rceil
+\]
+
+Thus, given a uniform random variable \( U \sim \text{Uniform}(0, 1) \), the sample from the geometric distribution is:
+\[
+X = \lceil \frac{\ln(1 - U)}{\ln(1 - p)} \rceil
+\]
+
+\end{document}
